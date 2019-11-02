@@ -52,7 +52,7 @@ textarea {
     align-self: flex-start;
     position: -webkit-sticky;
     position: sticky;
-    top: 0.75rem;
+    top: 4.5rem;
   }
   .column-right-shadow.is-sticky {
     top: 1.5rem;
@@ -89,6 +89,16 @@ img.thumbnail {
 .navbar-logo img,
 .footer-logo img {
   max-height: 2.5rem;
+}
+.nav-sticky {
+  z-index: 999;
+  position: fixed;
+  margin-top: 0px;
+  height: 60px;
+  width: 100%;
+}
+.nav-sticky-block {
+  position: relative;
 }
 .navbar-main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
