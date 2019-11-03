@@ -91,7 +91,7 @@ img.thumbnail {
   max-height: 2.5rem;
 }
 .nav-sticky {
-  z-index: 999;
+  z-index: 99;
   position: fixed;
   margin-top: 0px;
   height: 60px;
