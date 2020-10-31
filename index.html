@@ -1,934 +1,988 @@
+
 <!DOCTYPE html>
-<html  lang="zh">
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-<title>边际线 Margin</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta charset="UTF-8">
+<title>Heeney</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/line-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/all.min.css">
+<link rel="stylesheet" type="text/css" href="js/lib/slick/slick.css">
+<link rel="stylesheet" type="text/css" href="js/lib/slick/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+<link rel="stylesheet" type="text/css" href="css/color.css">
 
-
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="边际线 Margin">
-<meta property="og:url" content="https:&#x2F;&#x2F;webcosmos.cn&#x2F;index.html">
-<meta property="og:site_name" content="边际线 Margin">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https:&#x2F;&#x2F;webcosmos.cn&#x2F;images&#x2F;og_image.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;webcosmos.cn&#x2F;images&#x2F;og_image.png">
-
-
-
-
-
-
-
-<link rel="icon" href="/images/favicon.png">
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/github-gist.css">
-
-
-    
-    
-    
-    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
-    
-
-    
-    
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
-    
-
-    
-    
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
-
-
-    
-    
-    
-    
-
-<link rel="stylesheet" href="/css/back-to-top.css">
-
-
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-
-
-<link rel="stylesheet" href="/css/style.css">
 </head>
-<body class="is-3-column">
-    <nav class="navbar navbar-main nav-sticky">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/logo.png" alt="边际线 Margin" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item is-active"
-                href="/">即时</a>
-                
-                <a class="navbar-item"
-                href="/archives">时间轴</a>
-                
-                <a class="navbar-item"
-                href="/categories">目录</a>
-                
-                <a class="navbar-item"
-                href="/tags">标签</a>
-                
-                <a class="navbar-item"
-                href="/about">关于</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    
-                    <a class="navbar-item" target="_blank" title="AlphaLxy GitHub" href="https://baidu.com">
-                        
-                        <i class="fas fa-bell"></i>
-                        
-                    </a>
-                    
-                
-                
-                
-                <a class="navbar-item search" title="搜索" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    <nav class="navbar navbar-main nav-sticky-block">
-    <div class="container">
-        <div class="navbar-brand is-flex-center">
-            <a class="navbar-item navbar-logo" href="/">
-            
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/logo.png" alt="边际线 Margin" height="28">
-            
-            </a>
-        </div>
-        <div class="navbar-menu">
-            
-            <div class="navbar-start">
-                
-                <a class="navbar-item is-active"
-                href="/">即时</a>
-                
-                <a class="navbar-item"
-                href="/archives">时间轴</a>
-                
-                <a class="navbar-item"
-                href="/categories">目录</a>
-                
-                <a class="navbar-item"
-                href="/tags">标签</a>
-                
-                <a class="navbar-item"
-                href="/about">关于</a>
-                
-            </div>
-            
-            <div class="navbar-end">
-                
-                    
-                    
-                    <a class="navbar-item" target="_blank" title="AlphaLxy GitHub" href="https://baidu.com">
-                        
-                        <i class="fas fa-bell"></i>
-                        
-                    </a>
-                    
-                
-                
-                
-                <a class="navbar-item search" title="搜索" href="javascript:;">
-                    <i class="fas fa-search"></i>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</nav>
-    
-    <!-- 首页幻灯片 -->
-    <link rel="stylesheet" href="/css/main_banner.css">
-    <div id='banner' class='card'></div>
-    <script src="/js/main_banner.js" defer></script>
-    
-        <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/">由智利的泄愤式骚乱谈开来</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 文章置顶start -->
-                
-                    <i class="fas fa-arrow-alt-circle-up" style="color:#3273dc"></i>
-                    <span class="level-item" style="color:#3273dc">&nbsp;置顶</span>
-                
-                <!-- 文章置顶end -->
-                <time class="level-item has-text-grey" datetime="2019-10-29T13:05:32.840Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-29</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-11-02T10:16:40.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-11-02</time>
-                
-                
-                
-                <span class="level-item has-text-grey">
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    29 分钟 读完 (大约 4325 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            一度获评南美洲最成功国家的智利，在后骚乱时代将何去何从？
-            <!-- <blockquote>
-<p>世界各地频发的骚乱，是经济危机的金丝雀。</p></blockquote> -->
-        </div>
-        
-        
-        <!-- 如果不是显示了全文的话，加一个标签和阅读更多的底栏，此处修改了description的情况 -->
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                    <i class="fas fa-tags has-text-grey"></i>&nbsp;
-                    <a class="has-link-grey -link" href="/tags/%E6%94%BF%E8%AE%BA/" rel="tag">政论</a>,&nbsp;<a class="has-link-grey -link" href="/tags/%E9%95%BF%E6%96%87/" rel="tag">长文</a>
-                </div>
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
 
 
+<body>
+
+	<div class="preloader">
+		<div class="blobs">
+			<div class="blob-center"></div>
+			<div class="blob"></div>
+			<div class="blob"></div>
+			<div class="blob"></div>
+			<div class="blob"></div>
+			<div class="blob"></div>
+			<div class="blob"></div>
+		</div>
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<defs>
+			    <filter id="goo">
+			      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+			      <feColorMatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+			      <feBlend in="SourceGraphic" in2="goo" />
+			  	</filter>
+			</defs>
+		</svg>
+	</div><!--PRELOADER END-->
+
+	<div class="wrapper">
+		
+		<header>
+			<div class="container">
+				<div class="top-bar">
+					<div class="menu-btn">
+                        <a href="#" title="">
+                            <span class="bar1"></span>
+                            <span class="bar2"></span>
+                            <span class="bar3"></span>
+                        </a>
+                    </div><!--menu-btn end-->
+					<nav>
+						<ul>
+							<li><a href="index.html" title="">Home</a></li>
+							<li><a href="standard-post.html" title="">Standard Post</a></li>
+							<li><a href="about.html" title="">about</a></li>
+							<li><a href="contact.html" title="">contact</a></li>
+						</ul>
+					</nav><!--navigation end-->
+					<div class="rt-subs">
+						<a class="subscribe-btn" href="#" title=""><i class="la la-envelope-o"></i> Subscribe</a>
+						<a class="search-btn" href="#" title=""><i class="la la-search"></i></a>
+					</div><!--rt-subs end-->
+					<div class="clearfix"></div>
+				</div>
+				<div class="bottom-header">
+					<div class="container">
+						<div class="logo">
+							<h2><a href="#" title="">Heeney</a></h2>
+						</div><!-- logo end-->
+					</div>
+				</div><!--bottom-header end-->
+			</div>
+		</header><!--HEADER END-->
+
+		<div class="side-menu">
+			<a href="#" title="" class="close-sidemenu"><i class="la la-close"></i></a>
+			<ul class="navigation">
+				<li><a href="index.html" title="">Home</a></li>
+				<li><a href="standar-post.html" title="">Standard Post</a></li>
+				<li><a href="about.html" title="">About</a></li>
+				<li><a href="contact.html" title="">Contact</a></li>
+			</ul><!--navigation end-->
+			<div class="logo">
+				<h2><a href="#" title="">Heeney</a></h2>
+			</div><!-- logo end-->
+		</div><!--side-menu end-->
+
+		<section class="blog-section">
+			<div class="container">
+				<div class="blog-items main">
+					<div class="row">
+						<div class="col-lg-8">
+							<div class="blog-item main-style">
+								<div class="blog-img">
+									<img src="images/resources/blog-img1.jpg" alt="">
+									<a href="#" title="" class="post-category">Lifestyle</a>
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Claire Foy on Becoming Mother Trading Her Crown for a Dragon Tattoo</a></h3>
+									<div class="met-soc">
+										<ul class="meta">
+											<li>December 22, 2018 </li>
+											<li><i class="la la-eye"></i>3258</li>
+											<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+										</ul>
+										<ul class="social-links">
+											<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+											<li><a href="#" title=""><i class="fab fa-pinterest-p"></i></a></li>
+											<li><a href="#" title=""><i class="fab fa-facebook-messenger"></i></a></li>
+										</ul>
+									</div><!--met-soc end-->
+								</div><!--blog-info end-->
+							</div><!--blog-items end-->
+						</div>
+						<div class="col-lg-4">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/blog-img2.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Let Emily Ratakowski Explain Single Payer Health </a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-items end-->
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/blog-img3.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Now You Know Zazie on Beetz Explains Net Neutrality</a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-items end-->
+						</div>
+					</div>
+				</div><!--blog-items end-->
+			</div>
+		</section><!--blog-section end-->
+
+		<section class="blog-section feat-stors sec-padding">
+			<div class="container">
+				<div class="sec-title">
+					<h3>Featured Stories </h3>
+				</div><!--sec-title end-->
+				<div class="blog-items">
+					<div class="row">
+						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/item1.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Don’t Risk a Red-Eye Without These Things</a></h3>
+									<ul class="meta">
+										<li>Dec 11, 2018 </li>
+										<li><i class="la la-eye"></i>2478</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/item2.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Healthy and Deliciously Easy Breakfast Recipes</a></h3>
+									<ul class="meta">
+										<li>Dec 10, 2018 </li>
+										<li><i class="la la-eye"></i>471</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/item3.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">The 4 Workout Pieces Every Woman Should Own</a></h3>
+									<ul class="meta">
+										<li>Dec 9, 2018 </li>
+										<li><i class="la la-eye"></i>234</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>5</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-6 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/item4.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Now You Know Zazie Beetz   Explains Net Neutrality</a></h3>
+									<ul class="meta">
+										<li>Dec 6, 2018 </li>
+										<li><i class="la la-eye"></i>3281</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+					</div>
+				</div><!--blog-items end-->
+			</div>
+		</section><!--blog-section end-->
+
+		<section class="main-content pb-0">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 mgr-50">
+						<div class="blog-section mb-20">
+							<ul class="nav nav-tabs" id="myTab" role="tablist">
+								<li class="nav-item">
+							    	<a class="nav-link active" id="trending-tab" data-toggle="tab" href="#trending" role="tab" aria-controls="trending-tab" aria-selected="true">Trending</a>
+							  	</li>
+							  	<li class="nav-item">
+							    	<a class="nav-link" id="mostview-tab" data-toggle="tab" href="#most-view" role="tab" aria-controls="mostview-tab" aria-selected="false">Most View</a>
+							  	</li>
+							  	<li class="nav-item">
+							    	<a class="nav-link" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular-tab" aria-selected="false">Popular</a>
+							  	</li>
+							</ul><!--tabs-list end-->
+							<div class="clearfix"></div>
+							<div class="tab-content" id="myTabContent">
+								<div class="tab-pane fade show active" id="trending" role="tabpanel" aria-labelledby="trending-tab">
+									<div class="blog-items">
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item5.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Photograph</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Roland Mouret New Book About Life Work Brings His Past  </a></h3>
+														<ul class="meta">
+															<li>December 31, 2018 </li>
+															<li><i class="la la-eye"></i>3258</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item6.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Travel</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">The Best On-the-Go Snacks to Get Before Holiday Travel   </a></h3>
+														<ul class="meta">
+															<li>December 29, 2018 </li>
+															<li><i class="la la-eye"></i>1157</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item7.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Beauty</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Diddy Offers Intimate Look at His Birthday Beauty Routine </a></h3>
+														<ul class="meta">
+															<li>December 27, 2018 </li>
+															<li><i class="la la-eye"></i>964</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>6</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item8.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Fashion</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Julia Roberts' Infamous Armpit Hair Reveal Was a Statement</a></h3>
+														<ul class="meta">
+															<li>December 25, 2018 </li>
+															<li><i class="la la-eye"></i>2478</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+										</div>
+									</div><!--blog-items end-->
+								</div>
+							  	<div class="tab-pane fade" id="most-view" role="tabpanel" aria-labelledby="mostview-tab">
+							  		<div class="blog-items">
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item5.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Travel</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">The Best On-the-Go Snacks to Get Before Holiday Travel  </a></h3>
+														<ul class="meta">
+															<li>December 31, 2018 </li>
+															<li><i class="la la-eye"></i>3258</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item6.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Beauty</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Diddy Offers Intimate Look at His Birthday Beauty Routine  </a></h3>
+														<ul class="meta">
+															<li>December 29, 2018 </li>
+															<li><i class="la la-eye"></i>1157</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item7.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Fashion</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Julia Roberts' Infamous Armpit Hair Reveal Was a Statement </a></h3>
+														<ul class="meta">
+															<li>December 27, 2018 </li>
+															<li><i class="la la-eye"></i>964</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>6</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item8.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Photograph</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Roland Mouret New Book About Life Work Brings His Past </a></h3>
+														<ul class="meta">
+															<li>December 25, 2018 </li>
+															<li><i class="la la-eye"></i>2478</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+										</div>
+									</div><!--blog-items end-->
+							  	</div>
+							  	<div class="tab-pane fade" id="popular" role="tabpanel" aria-labelledby="popular-tab">
+							  		<div class="blog-items">
+										<div class="row">
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item5.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Travel</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">The Best On-the-Go Snacks to Get Before Holiday Travel  </a></h3>
+														<ul class="meta">
+															<li>December 31, 2018 </li>
+															<li><i class="la la-eye"></i>3258</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item6.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Beauty</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Diddy Offers Intimate Look at His Birthday Beauty Routine  </a></h3>
+														<ul class="meta">
+															<li>December 29, 2018 </li>
+															<li><i class="la la-eye"></i>1157</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item7.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Fashion</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Julia Roberts' Infamous Armpit Hair Reveal Was a Statement </a></h3>
+														<ul class="meta">
+															<li>December 27, 2018 </li>
+															<li><i class="la la-eye"></i>964</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>6</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+											<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+												<div class="blog-item">
+													<div class="blog-img">
+														<img src="images/resources/item8.jpg" alt="">
+													</div><!--blog-img end-->
+													<div class="blog-info">
+														<a href="#" title="" class="post-category">Photograph</a>
+														<h3 class="post-title"><a href="standard-post.html" title="">Roland Mouret New Book About Life Work Brings His Past </a></h3>
+														<ul class="meta">
+															<li>December 25, 2018 </li>
+															<li><i class="la la-eye"></i>2478</li>
+															<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+														</ul>
+													</div><!--blog-info end-->
+												</div><!--blog-item end-->
+											</div>
+										</div>
+									</div><!--blog-items end-->
+							  	</div>
+							</div><!--tab-content end-->
+						</div><!--blog-section end-->
+						<div class="top-post-section">
+							<div class="sec-title">
+								<h3>Top Posts</h3>								
+							</div><!--sec-title end-->
+							<div class="blog-items">
+								<div class="row">
+									<div class="col-lg-9">
+										<div class="blog-item lrg">
+											<div class="blog-img">
+												<img src="images/resources/item9.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<ul class="meta">
+													<li><a href="#" title="" class="post-category">Photograph</a></li>
+													<li>December 18, 2018 </li>
+													<li><i class="la la-eye"></i>4123</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>7</a></li>
+												</ul>
+												<h3 class="post-title"><a href="standard-post.html" title="">The Saint Louis Art Museum Welcome Kehin de Wiley to the Midwest</a></h3>
+												<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibum auctor nisi elit consequat ipsum, nec sagittis sem nibh id elit... </p>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+									<div class="col-lg-3">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item10.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<h3 class="post-title"><a href="standard-post.html" title="">The No Sugar Challenge That Almost Broke Me</a></h3>
+												<ul class="meta">
+													<li>Dec 24, 2018</li>
+													<li><i class="la la-eye"></i>417</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>1</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item11.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<h3 class="post-title"><a href="standard-post.html" title="">The No Sugar Challenge That Almost Broke Me</a></h3>
+												<ul class="meta">
+													<li>Dec 21, 2018</li>
+													<li><i class="la la-eye"></i>247</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+								</div>
+							</div><!--blog-items end-->
+						</div><!--blog-section end-->
+						<div class="blog-section">
+							<div class="blog-items style2 sec-padding">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item12.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Photograph</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">Michelin Has Bestowed More Stars Upon New York City  </a></h3>
+												<ul class="meta">
+													<li>December 23, 2018</li>
+													<li><i class="la la-eye"></i>3258</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item13.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Travel</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">Bedtime Habits To Wake Up Feeling Refreshed </a></h3>
+												<ul class="meta">
+													<li>December 22, 2018 </li>
+													<li><i class="la la-eye"></i>1157</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item14.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Beauty</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">The New Museum and Alexander McQueen Honor  </a></h3>
+												<ul class="meta">
+													<li>December 20, 2018 </li>
+													<li><i class="la la-eye"></i>964</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>6</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item15.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Fashion</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">The Artist Behind Nigeria’s Newest Dance Crazy Style </a></h3>
+												<ul class="meta">
+													<li>December 19, 2018 </li>
+													<li><i class="la la-eye"></i>2478</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+								</div>
+							</div><!--blog-items end-->
+						</div><!--blog-section end-->
+						<div class="blog-section">
+							<div class="blog-items main">
+								<div class="blog-item main-style">
+									<div class="blog-img no-overlay">
+										<img src="images/resources/blog-main-img.jpg" alt="">
+										<a href="#" title="" class="post-category">Lifestyle</a>
+									</div><!--blog-img end-->
+									<div class="blog-info">
+										<h3 class="post-title"><a href="standard-post.html" title="">Claire Foy on Becoming Mother Trading Her Crown for a Dragon Tattoo</a></h3>
+										<div class="met-soc">
+											<ul class="meta">
+												<li>December 22, 2018 </li>
+												<li><i class="la la-eye"></i>3258</li>
+												<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+											</ul>
+											<ul class="social-links">
+												<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-pinterest-p"></i></a></li>
+												<li><a href="#" title=""><i class="fab fa-facebook-messenger"></i></a></li>
+											</ul>
+										</div><!--met-soc end-->
+									</div><!--blog-info end-->
+								</div><!--blog-items end-->
+							</div><!--blog-items end-->
+						</div><!--blog-section end-->
+						<div class="blog-section">
+							<div class="blog-items style2 sec-padding2">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item16.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Travel</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">Watch Ciara Break Down 5 Iconic Dance Moves Single </a></h3>
+												<ul class="meta">
+													<li>December 17, 2018</li>
+													<li><i class="la la-eye"></i>964</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-6 col-12">
+										<div class="blog-item">
+											<div class="blog-img">
+												<img src="images/resources/item17.jpg" alt="">
+											</div><!--blog-img end-->
+											<div class="blog-info">
+												<a href="#" title="" class="post-category">Lifestyle</a>
+												<h3 class="post-title"><a href="standard-post.html" title="">Emily Blunt Takes Over for Anna Wintour and Talks </a></h3>
+												<ul class="meta">
+													<li>December 15, 2018</li>
+													<li><i class="la la-eye"></i>2478</li>
+													<li><a href="#" title=""><i class="la la-comment-o"></i>7</a></li>
+												</ul>
+											</div><!--blog-info end-->
+										</div><!--blog-item end-->
+									</div>
+								</div>
+							</div><!--blog-items end-->
+						</div><!--blog-section end-->
+						<div class="heeney-pagination text-center">
+							<nav aria-label="Page navigation example">
+								<ul class="pagination justify-content-center">
+							    	<li class="page-item disabled">
+							      	<a class="page-link" href="#" tabindex="-1"><i class="fas fa-arrow-left"></i></a>
+							    	</li>
+								    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+								    <li class="page-item"><a class="page-link" href="#">2</a></li>
+								    <li class="page-item"><a class="page-link" href="#">3</a></li>
+								    <li class="page-item">
+								      <a class="page-link" href="#"><i class="fas fa-arrow-right"></i></a>
+								    </li>
+							  	</ul>
+							</nav>
+						</div><!--heeney-pagination end-->
+					</div>
+					<div class="col-lg-4">
+						<div class="sidebar">
+							<div class="widget widget-trending-posts">
+								<h3 class="widget-title">Trending</h3>
+								<div class="wd-posts">
+									<div class="wd-post">
+										<img src="images/resources/post1.jpg" alt="">
+										<div class="wd-post-info">
+											<h3 class="post-title"><a href="standard-post.html" title="">Living Room Makeover Reveal</a></h3>
+											<span class="post-date">Dec 25, 2018</span>
+										</div>
+									</div><!--wd-post end-->
+									<div class="wd-post">
+										<img src="images/resources/post2.jpg" alt="">
+										<div class="wd-post-info">
+											<h3 class="post-title"><a href="standard-post.html" title="">Candy Inspired Treat Recipes</a></h3>
+											<span class="post-date">Dec 23, 2018</span>
+										</div>
+									</div><!--wd-post end-->
+									<div class="wd-post">
+										<img src="images/resources/post3.jpg" alt="">
+										<div class="wd-post-info">
+											<h3 class="post-title"><a href="standard-post.html" title="">Fun Spooky Halloween Treats</a></h3>
+											<span class="post-date">Dec 21, 2018</span>
+										</div>
+									</div><!--wd-post end-->
+									<div class="wd-post">
+										<img src="images/resources/post4.jpg" alt="">
+										<div class="wd-post-info">
+											<h3 class="post-title"><a href="standard-post.html" title="">Soup Recipes Everyone Will Love</a></h3>
+											<span class="post-date">Dec 19, 2018</span>
+										</div>
+									</div><!--wd-post end-->
+								</div><!--wd-posts end-->
+							</div><!--widget-trending-posts end-->
+							<div class="widget widget-social-links">
+								<ul>
+									<li>
+										<a href="#" title="" class="facebook"><i class="fab fa-facebook-f"></i></a>
+										<h4>3,553 </h4>
+										<span>Followers</span>
+									</li>
+									<li>
+										<a href="#" title="" class="twitter"><i class="fab fa-twitter"></i></a>
+										<h4>11,211 </h4>
+										<span>Followers</span>
+									</li>
+									<li>
+										<a href="#" title="" class="pinterest"><i class="fab fa-pinterest-p"></i></a>
+										<h4>9,328 </h4>
+										<span>Followers</span>
+									</li>
+								</ul>
+							</div><!--widget-social-links end-->
+							<div class="widget subscribe-wd">
+								<h3 class="widget-title">Get Fresh News</h3>
+								<form>
+									<input type="email" name="email" placeholder="Enter your email adress">
+									<button type="submit"><i class="far fa-paper-plane"></i></button>
+								</form>
+								<img src="images/penc-img.png" alt="" class="penc-img">
+							</div><!--subscribe-wd end-->
+							<div class="widget widget-recent-post">
+								<h3 class="widget-title">Recent Post</h3>
+								<div class="recent-post-carousel">
+									<div class="post-slide">
+										<img src="images/resources/rc-img.jpg" alt="">
+									</div><!--post-slide end-->
+									<div class="post-slide">
+										<img src="images/resources/rc-img.jpg" alt="">
+									</div><!--post-slide end-->
+									<div class="post-slide">
+										<img src="images/resources/rc-img.jpg" alt="">
+									</div><!--post-slide end-->
+								</div><!--carousel end-->
+							</div><!--widget-recent-post end-->
+							<div class="widget widget-adver">
+								<a href="#" title=""><img src="images/resources/ad-img.jpg" alt=""></a>
+							</div><!--widget-adver end-->
+							<div class="widget widget-catgs">
+								<h3 class="widget-title">Categories</h3>
+								<ul class="catgs-links">
+									<li><a href="#" title="">Fashion</a></li>
+									<li><a href="#" title="">Lifestyle</a></li>
+									<li><a href="#" title="">Beauty</a></li>
+									<li><a href="#" title="">Travel</a></li>
+									<li><a href="#" title="">Photograph</a></li>
+								</ul><!--catgs-links end-->
+							</div><!--widget-catgs end-->
+							<div class="widget widget-fb">
+								<div class="page-img">
+									<img src="images/resources/page-img.jpg" alt="">
+									<div class="page-hd">
+										<h3>Heeney</h3>
+										<span>321K likes</span>
+									</div>
+									<ul class="fb-opts">
+										<li>
+											<a href="#" title=""><i class="fab fa-facebook"></i> Like Page</a>
+										</li>
+										<li>
+											<a href="#" title="">Sign Up</a>
+										</li>
+									</ul>
+								</div><!--page-img end-->
+								<div class="post-mgs">
+									<div class="post-imgs">
+										<h5>You and 16 other friends like this</h5>
+										<ul>
+											<li><a href="#" title=""><img src="images/resources/fb-img1.jpg" alt=""></a></li>
+											<li><a href="#" title=""><img src="images/resources/fb-img2.jpg" alt=""></a></li>
+											<li><a href="#" title=""><img src="images/resources/fb-img3.jpg" alt=""></a></li>
+											<li><a href="#" title=""><img src="images/resources/fb-img4.jpg" alt=""></a></li>
+											<li><a href="#" title=""><img src="images/resources/fb-img5.jpg" alt=""></a></li>
+											<li><a href="#" title=""><img src="images/resources/fb-img6.jpg" alt=""></a></li>
+										</ul>
+										<div class="clearfix"></div>
+									</div><!--post-imgs end-->
+								</div>
+							</div><!--widget-fb end-->
+						</div><!--sidebar end-->
+					</div>
+				</div>
+			</div>
+		</section><!--main-content end-->
+
+		<section class="recommend-posts p-75">
+			<div class="container">
+				<div class="sec-title">
+					<h3>Recommended</h3>
+				</div><!--sec-title end-->
+				<div class="blog-items smaller-post">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img1.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Fashion</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">The Best Street Style at Tbilisi Fashion Week Spring 2019 </a></h3>
+									<ul class="meta">
+										<li>Dec 25, 2018</li>
+										<li><i class="la la-eye"></i>2478</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>3</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img2.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Lifestyle</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">Gabriela Hearst Just Opened the Most Beautiful Store  </a></h3>
+									<ul class="meta">
+										<li>Dec 20, 2018</li>
+										<li><i class="la la-eye"></i>325</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>4</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img3.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Travel</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">Dover Street Market’s New Los Angeles Store Is a Game Changer</a></h3>
+									<ul class="meta">
+										<li>Dec 16, 2018</li>
+										<li><i class="la la-eye"></i>328</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>7</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-6">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img4.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Photograph</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">Elsa Hosk Unveils the Victoria’s Secret Fantasy Bra </a></h3>
+									<ul class="meta">
+										<li>Dec 23, 2018</li>
+										<li><i class="la la-eye"></i>1147</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>2</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img5.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Beauty</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">After 3 Seasons, Serge Ruffieux Leaves Carven </a></h3>
+									<ul class="meta">
+										<li>Dec 19, 2018</li>
+										<li><i class="la la-eye"></i>741</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>1</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/rp-img6.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<a href="#" title="" class="post-category">Fashion</a>
+									<h3 class="post-title"><a href="standard-post.html" title="">The Week in Washington: Trump’s Pree lection Frenzy-Fests</a></h3>
+									<ul class="meta">
+										<li>Dec 14, 2018</li>
+										<li><i class="la la-eye"></i>6581</li>
+										<li><a href="#" title=""><i class="la la-comment-o"></i>5</a></li>
+									</ul>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--recommend-posts end-->
+
+		<footer>
+			<div class="container">
+				<div class="blog-items ft-style p-70">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/ft-img1.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Five Quotes For Some Extra Monday Motivation</a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/ft-img2.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">The No Sugar Challenge That Almost Broke Me</a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/ft-img3.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Ways To Make More Time in Motherhood Career</a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
+							<div class="blog-item">
+								<div class="blog-img">
+									<img src="images/resources/ft-img4.jpg" alt="">
+								</div><!--blog-img end-->
+								<div class="blog-info">
+									<h3 class="post-title"><a href="standard-post.html" title="">Lessons I’ve Learned From Being A Mom</a></h3>
+								</div><!--blog-info end-->
+							</div><!--blog-item end-->
+						</div>
+					</div>
+				</div><!--blog-items end-->
+				<div class="footer-content">
+					<div class="row">
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="ft-logo">
+								<h1><a href="#" title="">Heeney</a></h1>
+							</div><!--ft-logo end-->
+						</div>
+						<div class="col-lg-4 col-md-6 col-sm-6">
+							<ul class="social-links">
+								<li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+								<li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+								<li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
+								<li><a href="#" title=""><i class="fab fa-pinterest-p"></i></a></li>
+								<li><a href="#" title=""><i class="fab fa-facebook-messenger"></i></a></li>
+							</ul>
+						</div>
+						<div class="col-lg-4 col-md-12">
+							<ul class="ft-links">
+								<li><a href="about.html" title="">About</a></li>
+								<li><a href="contact.html" title="">Contact</a></li>
+							</ul><!--ft-links end-->
+						</div>
+					</div>
+				</div><!--footer-content end-->
+			</div>
+		</footer><!--footer end-->
+
+
+		<section class="bottom-strip">
+			<div class="container">
+				<p>©2018 Heeney. All Rights Reserved.</p>
+			</div>
+		</section><!--bottom-strip end-->
+
+		<div class="search-page">
+			<form>
+				<div class="container">
+					<div class="form-field">
+						<input type="text" name="search" placeholder="Enter Your Keywords">
+						<button type="submit"><i class="la la-search"></i></button>
+					</div>
+				</div>
+			</form>
+			<a href="#" title="" class="close-search"><i class="la la-close"></i></a>
+		</div><!--SEARCH PAGE END-->
+
+
+
+	</div><!--wrapper end-->
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/lib/slick/slick.js"></script>
+<script src="js/script.js"></script>
+
+
+
+</body>
 
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/">野狼 disco</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 文章置顶start -->
-                
-                <!-- 文章置顶end -->
-                <time class="level-item has-text-grey" datetime="2019-10-29T13:05:32.870Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-29</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-11-02T09:26:58.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-11-02</time>
-                
-                
-                
-                <span class="level-item has-text-grey">
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    几秒 读完 (大约 6 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            这首歌有毒！
-            <!-- <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="https://qiniu.webcosmos.cn/disco.jpeg" alt></p>
- -->
-        </div>
-        
-        
-        <!-- 如果不是显示了全文的话，加一个标签和阅读更多的底栏，此处修改了description的情况 -->
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-image">
-        <a href="/2019/10/29/first/" class="image is-7by1">
-            <img class="thumbnail" src="/gallery/thumbnails/1-1.jpg" alt="登高">
-        </a>
-    </div>
-    
-    <div class="card-content article ">
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/10/29/first/">登高</a>
-            
-        </h1>
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- 文章置顶start -->
-                
-                <!-- 文章置顶end -->
-                <time class="level-item has-text-grey" datetime="2019-10-29T13:05:32.830Z"><i class="far fa-calendar-alt">&nbsp;</i>2019-10-29</time>
-                
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2019-11-02T08:31:26.000Z"><i class="far fa-calendar-check">&nbsp;</i>2019-11-02</time>
-                
-                
-                
-                <span class="level-item has-text-grey">
-                    <i class="far fa-clock"></i>&nbsp;
-                    
-                    
-                    3 分钟 读完 (大约 462 个字)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <div class="content">
-            <p>应该说是与生俱来吧，他喜欢高处。</p>
-            <!-- <p>应该说是与生俱来吧，他喜欢高处。</p> -->
-        </div>
-        
-        
-        <!-- 如果不是显示了全文的话，加一个标签和阅读更多的底栏，此处修改了description的情况 -->
-        
-        <hr style="height:1px;margin:1rem 0"/>
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/10/29/first/#more"><i class="fas fa-book-reader has-text-grey"></i>&nbsp;&nbsp;阅读更多</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-</div>
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
-    
-        
-
-<!-- 对于是首页的情况，左侧置顶 -->
-
-<div class="card widget">
-    <div class="card-content">
-        <nav class="level" style="margin-bottom:1rem">
-            <div class="level-item has-text-centered">
-                <div>
-                    
-                        <img class="image is-96x96 has-mb-6" src="https://qiniu.webcosmos.cn/avatar.png" alt="Margin">
-                    
-                    
-                    <p class="is-size-4 is-block">
-                        Margin
-                    </p>
-                    
-                    
-                    <p class="is-size-6 is-block">
-                        边际线 / 这边与那边的冒险
-                    </p>
-                    
-                    
-                </div>
-            </div>
-        </nav>
-        <nav class="level menu-list is-mobile" style="margin-bottom:1rem">
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/archives/">
-                    <p class="heading">
-                        文章
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        3
-                    </p>
-                </a>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/categories/">
-                    <p class="heading">
-                        分类
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        0
-                    </p>
-                </a>
-            </div>
-            <div class="level-item has-text-centered is-marginless">
-                <a href="/tags/">
-                    <p class="heading">
-                        标签
-                    </p>
-                    <p class="title has-text-weight-normal">
-                        2
-                    </p>
-                </a>
-            </div>
-        </nav>
-        <div class="level">
-            <a class="level-item button is-link is-rounded" href="https://webcosmos.cn/about" target="_blank">
-                <i class="fas fa-heartbeat"></i>&nbsp;&nbsp;  今日精选</a>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Weibo" href="https://weibo.com">
-                
-                <i class="fab fa-weibo"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Facebook" href="https://facebook.com">
-                
-                <i class="fab fa-facebook"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Twitter" href="https://twitter.com">
-                
-                <i class="fab fa-twitter"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Instagram" href="https://instagram.com">
-                
-                <i class="fab fa-instagram"></i>
-                
-            </a>
-            
-            <a class="level-item button is-white is-marginless" target="_blank"
-                title="Line" href="/">
-                
-                <i class="fab fa-line"></i>
-                
-            </a>
-            
-        </div>
-        
-    </div>
-</div>
-
-<!-- 对于是文章的情况，不置顶-->
- 
-    
-        
-
-    
-    
-        <div class="column-right-shadow is-hidden-widescreen ">
-        
-            
-
-
-        
-            <div class="card widget is-hidden-mobile">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            时间归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="野狼 disco">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.870Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/" class="has-link-black-ter is-size-6">野狼 disco</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://qiniu.webcosmos.cn/%E6%99%BA%E5%88%A9%E7%81%AB.jpg" alt="由智利的泄愤式骚乱谈开来">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.840Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/" class="has-link-black-ter is-size-6">由智利的泄愤式骚乱谈开来</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/first/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/1-1.jpg" alt="登高">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.830Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/first/" class="has-link-black-ter is-size-6">登高</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-        
-            
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            
-            </ul>
-        </div>
-    </div>
-</div>
-        
-            
-<div class="card widget is-hidden-mobile">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/%E6%94%BF%E8%AE%BA/" style="font-size: 10px;">政论</a> <a href="/tags/%E9%95%BF%E6%96%87/" style="font-size: 10px;">长文</a>
-    </div>
-</div>
-
-
-        
-        </div>
-    
-</div>
-
-                
-
-
-
-
-<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
-    
-        
-
-
-    
-        <div class="card widget is-hidden-mobile">
-    <div class="card-content">
-        <div class="menu">
-        <h3 class="menu-label">
-            时间归档
-        </h3>
-        <ul class="menu-list">
-        
-        <li>
-            <a class="level is-marginless" href="/archives/2019/10/">
-                <span class="level-start">
-                    <span class="level-item">十月 2019</span>
-                </span>
-                <span class="level-end">
-                    <span class="level-item tag">3</span>
-                </span>
-            </a>
-        </li>
-        
-        </ul>
-        </div>
-    </div>
-</div>
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="menu-label">
-            最新文章
-        </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="野狼 disco">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.870Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/%E9%87%8E%E7%8B%BCdisco/" class="has-link-black-ter is-size-6">野狼 disco</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://qiniu.webcosmos.cn/%E6%99%BA%E5%88%A9%E7%81%AB.jpg" alt="由智利的泄愤式骚乱谈开来">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.840Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/%E6%99%BA%E5%88%A9%E9%AA%9A%E4%B9%B1%E7%AE%80%E8%AF%84/" class="has-link-black-ter is-size-6">由智利的泄愤式骚乱谈开来</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/10/29/first/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/gallery/thumbnails/1-1.jpg" alt="登高">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-29T13:05:32.830Z">2019-10-29</time></div>
-                    <a href="/2019/10/29/first/" class="has-link-black-ter is-size-6">登高</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-    </div>
-</div>
-
-    
-        
-<div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            
-            </ul>
-        </div>
-    </div>
-</div>
-    
-        
-<div class="card widget is-hidden-mobile">
-    <div class="card-content">
-        <h3 class="menu-label">
-            标签云
-        </h3>
-        <a href="/tags/%E6%94%BF%E8%AE%BA/" style="font-size: 10px;">政论</a> <a href="/tags/%E9%95%BF%E6%96%87/" style="font-size: 10px;">长文</a>
-    </div>
-</div>
-
-
-    
-    
-</div>
-
-            </div>
-        </div>
-    </section>
-    <footer class="footer">
-    <div class="container">
-        <div class="level">
-            <div class="level-start has-text-centered-mobile">
-                <a class="footer-logo is-block has-mb-6" href="/">
-                
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/images/logo.png" alt="边际线 Margin" height="28">
-                
-                </a>
-                <p class="is-size-7">
-                        &copy; 2019 Joseph&nbsp;版权所有
-                        | 京ICP备18007884号
-                
-                </p>
-            </div>
-            <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="CC BY-NC 4.0" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>&nbsp;
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="资源合集" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="far fa-arrow-alt-circle-down"></i>&nbsp;
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="捐赠打赏" href="https://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="far fa-grin-beam"></i>&nbsp;
-                        
-                    </a>
-                </p>
-                
-                </div>
-            
-            </div>
-        </div>
-    </div>
-</footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
-<script>moment.locale("zh-CN");</script>
-
-
-    
-    
-    
-    <script src="/js/animation.js"></script>
-    
-
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
-    <script src="/js/gallery.js" defer></script>
-    
-
-    
-    
-
-<div id="outdated">
-    <h6>Your browser is out-of-date!</h6>
-    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
-            my browser now </a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        outdatedBrowser({
-            bgColor: '#f25648',
-            color: '#ffffff',
-            lowerThan: 'flex'
-        });
-    });
-</script>
-
-
-    
-    
-    
-    
-
-<a id="back-to-top" title="回到顶端" href="javascript:;">
-    <i class="fas fa-chevron-up"></i>
-</a>
-<script src="/js/back-to-top.js" defer></script>
-
-
-    
-    
-
-    
-    
-    
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
-    <script src="/js/clipboard.js" defer></script>
-    
-
-    
-    
-    
-
-
-<script src="/js/main.js" defer></script>
-
-    
-    <div class="searchbox ins-search">
-    <div class="searchbox-container ins-search-container">
-        <div class="searchbox-input-wrapper">
-            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
-            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="searchbox-result-wrapper ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-    (function (window) {
-        var INSIGHT_CONFIG = {
-            TRANSLATION: {
-                POSTS: '文章',
-                PAGES: '页面',
-                CATEGORIES: '分类',
-                TAGS: '标签',
-                UNTITLED: '(无标题)',
-            },
-            CONTENT_URL: '/content.json',
-        };
-        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-    })(window);
-</script>
-<script src="/js/insight.js" defer></script>
-<link rel="stylesheet" href="/css/search.css">
-<link rel="stylesheet" href="/css/insight.css">
-    
-<script>!function(e){var r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function t(){for(var c=0;c<r.length;c++)t=r[c],void 0,0<=(n=t.getBoundingClientRect()).top&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=r[c];t=o,n=function(){r=r.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}t(),e.addEventListener("scroll",function(){!function(t,n){clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)}(t,e)})}(this);</script></body>
 </html>
